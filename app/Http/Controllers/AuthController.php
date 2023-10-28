@@ -57,12 +57,10 @@ class AuthController extends Controller
 
     public function postLogout()
     {
-        if(Auth::check()){
-            Auth::logout();
-
-            session()->flash('alert_status', 'success');
-            session()->flash('alert_message', 'Çıkış Yapıldı');
-        }
+        Auth::logout();
+        
+        session()->flash('alert_status', 'success');
+        session()->flash('alert_message', 'Çıkış Yapıldı');
 
         return redirect('/');
     }

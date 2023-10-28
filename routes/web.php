@@ -11,18 +11,18 @@ use Illuminate\Support\Facades\Route;
 |
 | Here is where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
+| be assigned to the 'web' middleware group. Make something great!
 |
 */
 
-Route::prefix("/")->controller(PageController::class)->group(function(){
-    Route::get("/", "getHome");
+Route::prefix('/')->controller(PageController::class)->group(function(){
+    Route::get('/', 'getHome');
 });
 
-Route::prefix("/")->controller(AuthController::class)->group(function(){
-    Route::get("/kayit-ol", "getRegister");
-    Route::post("/kayit-ol", "postRegister");
-    Route::get("/giris-yap", "getLogin");
-    Route::post("/giris-yap", "postLogin");
-    Route::post("/cikis-yap", "postLogout");
+Route::prefix('/')->controller(AuthController::class)->group(function(){
+    Route::get('/kayit-ol', 'getRegister')->middleware('not_auth');
+    Route::post('/kayit-ol', 'postRegister')->middleware('not_auth');
+    Route::get('/giris-yap', 'getLogin')->middleware('not_auth');
+    Route::post('/giris-yap', 'postLogin')->middleware('not_auth');
+    Route::post('/cikis-yap', 'postLogout')->middleware('auth');
 });
