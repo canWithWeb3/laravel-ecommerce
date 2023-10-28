@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,4 +17,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix("/")->controller(PageController::class)->group(function(){
     Route::get("/", "getHome");
+});
+
+Route::prefix("/")->controller(AuthController::class)->group(function(){
+    Route::get("/kayit-ol", "getRegister");
+    Route::post("/kayit-ol", "postRegister");
+    Route::get("/giris-yap", "getLogin");
+    Route::post("/giris-yap", "postLogin");
+    Route::post("/cikis-yap", "postLogout");
 });

@@ -10,3 +10,12 @@ admin layout içerisinde @include("admin-sidebar") diyip include içerisinde @yi
 $request->validated() yapmak zorunlu mu
 
 bootstrap datatable alfabetik oluyor.
+
+form action aynı sayfaya post yollamasını istediğim için action 
+attribute silsem performans açısından bişey olur mu
+
+script type javascript yazmak gerek li ES6 için galiba module yazılmalıymış
+
+
+
+

@@ -27,11 +27,24 @@
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="fas fa-user"></i>
+              @auth
+                {{ Auth::user()->username }}
+              @else
+                <i class="fas fa-user"></i>
+              @endauth
             </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="{{ url('/giris-yap') }}">Giriş Yap</a></li>
-              <li><a class="dropdown-item" href="{{ url('/kayit-ol') }}">Kayıt Ol</a></li>
+              @auth
+                <li><a class="dropdown-item" href="{{ url('/profil') }}">Profilim</a></li>
+                <li>
+                  <a class="dropdown-item" href="javascript:;" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Çıkış Yap</a>
+                  <form id="logout-form" action="{{ url('/cikis-yap') }}" method="POST" class="d-none">@csrf</form>
+                </li>
+
+              @else
+                <li><a class="dropdown-item" href="{{ url('/giris-yap') }}">Giriş Yap</a></li>
+                <li><a class="dropdown-item" href="{{ url('/kayit-ol') }}">Kayıt Ol</a></li>
+              @endauth
             </ul>
           </li>
         </ul>
