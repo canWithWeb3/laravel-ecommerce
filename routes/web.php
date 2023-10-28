@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,4 +27,9 @@ Route::prefix('/')->controller(AuthController::class)->group(function(){
     Route::get('/giris-yap', 'getLogin')->middleware('not_auth');
     Route::post('/giris-yap', 'postLogin')->middleware('not_auth');
     Route::post('/cikis-yap', 'postLogout')->middleware('auth');
+});
+
+Route::prefix('/admin')->middleware('admin')->group(function(){
+    Route::get('/', [AdminController::class, 'getDashboard']);
+    Route::resource('/kategoriler', CategoryController::class);
 });

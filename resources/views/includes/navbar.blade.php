@@ -25,9 +25,11 @@
 
         {{-- auth --}}
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a href="{{ url('/admin') }}" class="nav-link">Admin</a>
-          </li>
+          @admin
+            <li class="nav-item">
+              <a href="{{ url('/admin') }}" class="nav-link">Admin</a>
+            </li>
+          @endadmin
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               @auth
