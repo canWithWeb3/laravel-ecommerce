@@ -12,7 +12,10 @@
                 <h1>{{ $product->name }}</h1>
                 <p>{!! $product->description !!}</p>
 
-                <button id="addToCartBtn" type="button" class="btn btn-success">Sepete Ekle</button>
+                <form action="{{ url("/addToCart/".$product->id) }}" method="POST">
+                    @csrf
+                    <button type="submit" class="btn btn-success">Sepete Ekle</button>
+                </form>
             </div>
         </div>
 
