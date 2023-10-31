@@ -16,6 +16,9 @@ attribute silsem performans açısından bişey olur mu
 
 script type javascript yazmak gerek li ES6 için galiba module yazılmalıymış
 
+public klasörüne resim yükleme
 
+products database price float tanımladım fakat .17 yaptığımı .20 diye yapıyor
 
-
+jquery ajax ile post isteği yolluyorum fakat giriş yapmadıysa ona göre middleware
+uygulayabilir miyim

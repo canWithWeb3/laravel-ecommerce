@@ -27,7 +27,7 @@ class AppServiceProvider extends ServiceProvider
                 return true;
         });
 
-        $categories = Category::orderBy('name', 'DESC')->get();
+        $categories = Category::orderBy('name', 'ASC')->get();
         view()->share('categories', $categories);
     }
 }

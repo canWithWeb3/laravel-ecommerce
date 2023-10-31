@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,6 +20,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('/')->controller(PageController::class)->group(function(){
     Route::get('/', 'getHome');
+    Route::get('/urun-detay/{id}', 'getProductDetail');
+    Route::post('/addToCart/{id}', 'addToCart');
 });
 
 Route::prefix('/')->controller(AuthController::class)->group(function(){
@@ -32,4 +35,5 @@ Route::prefix('/')->controller(AuthController::class)->group(function(){
 Route::prefix('/admin')->middleware('admin')->group(function(){
     Route::get('/', [AdminController::class, 'getDashboard']);
     Route::resource('/kategoriler', CategoryController::class);
+    Route::resource('/urunler', ProductController::class);
 });

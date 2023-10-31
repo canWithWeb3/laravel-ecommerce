@@ -31,7 +31,7 @@
             <div class="sidebar-menu">
                 <a href="{{ url("/") }}" class="sidebar-menu-link">Dashboard</a>
                 <a href="{{ url("/admin/kategoriler") }}" class="sidebar-menu-link">Kategoriler</a>
-                <a href="{{ url("/admin/books") }}" class="sidebar-menu-link">Kitaplar</a>
+                <a href="{{ url("/admin/urunler") }}" class="sidebar-menu-link">Ürünler</a>
                 <a href="{{ url("/admin/publishers") }}" class="sidebar-menu-link">Publishers</a>
                 <a href="{{ url("/admin/writers") }}" class="sidebar-menu-link">Yazarlar</a>
             </div>
@@ -96,6 +96,14 @@
                 $('#deleteModal form').attr('action', action)
 
                 $('#deleteModal').modal('show')
+            })
+
+            $('.price').on('keyup', function(e){
+                var key = event.keyCode;
+            
+                if (key < 48 || key > 57) {
+                    event.preventDefault();
+                }
             })
         })
     </script>
