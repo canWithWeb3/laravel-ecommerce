@@ -28,7 +28,7 @@
                                 @if (isset($product->categories) && count($product->categories) > 0)
                                     <ul>
                                         @foreach ($product->categories as $category)
-                                            <li>Kategori</li>                                        
+                                            <li>{{ $category->name }}</li>                                        
                                         @endforeach
                                     </ul>
                                 @endif

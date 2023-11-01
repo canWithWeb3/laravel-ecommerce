@@ -44,13 +44,8 @@ class ProductController extends Controller
             $product->price = $request->price;
             $product->save();
 
-            foreach($request->categories as $category){
-                $product->categories()->create([
-                    "product_id" => $product->id,
-                    "category_id" => $category
-                ]);
-            }
-            
+            $product->categories()->sync($request->categories);
+
             session()->flash("alert_status", "success");
             session()->flash("alert_message", "Ürün Eklendi");
         }catch(Exception $err){
